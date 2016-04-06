@@ -3,14 +3,28 @@
 
 **This is the base image from which all else is constructed.**
 
-The `Dockerfile` describes the initial dependencies as defined by the rAthena github project readme.
 
-It accepts environment variables to override the `packetver` and `prere` settings used when compiling, which can be set as follows (below are the defaults):
+## dependencies
 
-	PRERE=no PACKETVER=20151029 docker build -t "rathena:latest" .
+This image depends on the `debian:jessie` base image from the public docker register.
 
-_If you fancy support for multiple `packetver` values, you could use that in place of `latest` to make multiple builds available, and run a separate command to add another label for the latest build._
 
-The `add/` folder allows you to install or overwrite literally any customizable files for consistency when distributing.  This can include global configuration (eg. `conf/import/`) updates to code files (eg. `src/`), or any data files (eg. `npc/`, `db/`, etc...).
+## configuration
 
-The only item that exists there for certain is `add/docker/build.sh`, which includes the default logic to build rathena.  You can adjust the defaults, as well as customize the compilation steps here.
+By default the following environment variables can be supplied to override `packetver` and `prere` settings when building rathena:
+
+- `PRERE`
+- `PACKETVER`
+
+_See the `Dockerfile` for defaults._
+
+More detailed customization can be added by modifying the `Dockerfile` or `add/docker/build.sh`, which executes the build steps, allowing you to force override the environment variables or set additional settings.
+
+If you wish to add global configuration or modify rathena repository files prior to building, you can add them to `add/` using the same relative paths (_eg. `src/`, `conf/import/`, `npc/`, and `db/`_).
+
+
+## execution
+
+**The distributed components depend on a proper label of `rathena:latest`, which can be built via:**
+
+	docker build -t "rathena:latest" .
