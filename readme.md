@@ -12,6 +12,7 @@ Review the readme in each of these folders for more information:
 
 - [`rathena`](rathena/)
 - [`db`](db/)
+- [`full`](full/)
 
 
 ## Pre-emptive FAQ:
@@ -30,6 +31,8 @@ Review the readme in each of these folders for more information:
 	- laziness, and consistency.  Considering rAthena is a relatively active project, you can't ensure that separated DB builds cloning it would always get the same data, unless you also want to track and checkout a specific git commit hash or tagged version.
 - Why load all schema into the same db image?
 	- laziness, and consistency.  Loading it all at once reduces the number of containers we need to keep track of at the cost of a negligable amount of disk space.  _We can also use this as the base image for a complete deployment that can be tested before we bother with distributed components._
+- Why allow overrides in both the main image as well as each component?
+	- a consistent initial state supercedes per-instance settings, and a majority of global configuration is still applied via txt files and not mysql; it is entirely optional whether you use it.
 
 
 ## notes
