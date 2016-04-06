@@ -24,9 +24,10 @@ To build this instance:
 
 To launch a stand-alone local copy:
 
-	id=$(docker create -ti -p "5121:5121" -p "6121:6121" -p "6900:6900" rathena-full) docker start $id
+	export dcid=$(docker create -ti -p "5121:5121" -p "6121:6121" -p "6900:6900" rathena-full)
+	docker start $dcid
 
-_This sets a temporary `id` environment variable, then passes it to the start command which will launch your container._  It also maps each port in the format of `host:container`.
+_This sets a temporary `dcid` environment variable, then passes it to the start command which will launch your container._  It also maps each port in the format of `host:container`.
 
 **To run multiple instances you will need to reconfigure the ports before running the build, and change the mapping when creating the instance.**
 
