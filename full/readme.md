@@ -22,17 +22,21 @@ To build this instance:
 
 	docker build -t "rathena-full:latest" .
 
-To launch a copy:
+To launch a stand-alone local copy:
 
-	id=$(docker create -ti rathena-full) docker start $id
+	id=$(docker create -ti -p "5121:5121" -p "6121:6121" -p "6900:6900" rathena-full) docker start $id
 
-_This sets a temporary `id` environment variable, then passes it to the start command which will launch your container._
+_This sets a temporary `id` environment variable, then passes it to the start command which will launch your container._  It also maps each port in the format of `host:container`.
 
-To override port maps on running containers you can run the following:
-
-	TODO
+**To run multiple instances you will need to reconfigure the ports before running the build, and change the mapping when creating the instance.**
 
 
 ## notes
 
-Currently the configuration files are included with "sane defaults" that depend on the defaults in `rathena-db:latest` for mysql and server credentials.  In the future these configuration files will be templated with parameters such that we can load the settings from the `Dockerfile` using the same format as the db image.
+Currently the way configuration through docker works prevents us from truly creating a reusable pre-configured container, this is due to how the servers expect valid port mapping to share with the client.
+
+Additionally there is the problem of credentials for mysql and server expecting the settings from the previous container.
+
+Therefore, I plan to revisit the build modularity in a future update that will be a significant deviation from where this sits.
+
+This deviation is necessary to support multiple running instances, which was the intended proof-of-concept for this project.
