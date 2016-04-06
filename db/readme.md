@@ -31,9 +31,9 @@ If you wish to add global configuration or modify rathena repository files prior
 
 ## execution
 
-**The `full` container that runs a complete rathena instance depends on this image being labeled as `rathenadb:latest`, which can be built via:**
+**The `full` container that runs a complete rathena instance depends on this image being labeled as `rathena-db:latest`, which can be built via:**
 
-	docker build -t "rathenadb:latest" .
+	docker build -t "rathena-db:latest" .
 
 
 ## notes
