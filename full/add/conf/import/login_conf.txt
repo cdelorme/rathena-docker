@@ -1,0 +1,2 @@
+use_MD5_passwords: yes
+new_acc_length_limit: no

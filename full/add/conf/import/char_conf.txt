@@ -1,0 +1,8 @@
+userid: server
+passwd: default
+server_name: Docker
+pincode_enabled: no
+pincode_force: no
+char_moves_unlimited: yes
+char_ip: 127.0.0.1
+login_ip: 127.0.0.1
