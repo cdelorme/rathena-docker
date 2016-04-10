@@ -3,7 +3,7 @@ FROM debian:jessie
 # configurable settings with sane defaults
 ENV prere ${prere:-no}
 ENV packetver ${packetver:-20151029}
-ENV version ${version:-b6abe3fcbf8aaf8b010818349f02676c86acbe60}
+ENV version ${version:-master}
 
 # install dependent packages, secure mysql, and download rathena source
 RUN (echo "mysql-server mysql-server/root_password password default" | debconf-set-selections) && (echo "mysql-server mysql-server/root_password_again password default" | debconf-set-selections) && apt-get update && apt-get upgrade && apt-get install --no-install-recommends -yq git make gcc libmysqlclient-dev zlib1g-dev libpcre3-dev mysql-server libmysqlclient-dev ca-certificates
