@@ -1,18 +1,21 @@
 #!/bin/bash -eux
 
-# exit if no docker exists
+# exit if docker does not exist
 if ! which docker; then echo "docker required..." && exit 1; fi
 
-# @temp: run all three builds then launch the final container
-(cd rathena && docker build -t "rathena:latest" .)
-(cd db && docker build -t "rathena-db:latest" .)
-(cd full && docker build -t "rathena-full:latest" .)
-export dcid=$(docker create -ti -p "5121:5121" -p "6121:6121" -p "6900:6900" rathena-full)
-docker start $dcid
+grab_yes_no()
+{
+	[[ "$(eval echo \${$1:-})" = "y" || "$(eval echo \${$1:-})" = "n" ]] && return 0
+	export ${1}=""
+	until [[ "$(eval echo \$$1)" = "y" || "$(eval echo \$$1)" = "n" ]]; do
+		read -p "${2:-} (yn)? " ${1}
+	done
+	return 0
+}
 
-# @todo: ask for inputs to override defaults when building containers
+# if the image exists, ask if they wish to rebuild
+[ $(docker images | grep rathena | grep -c latest) -gt 0 ] && grab_yes_no "rebuild" "do you want to rebuild the base image"
+[ "${rebuild:-n}" = "y" ] && docker rmi "rathena:latest"
 
-# @todo: check for full vs demo to change behaivor
-
-# @todo: start a database instance (more steps to come)
-#db=$(docker create -ti rathenadb) docker start $db
+# rebuild image if it does not exist
+[ $(docker images | grep rathena | grep -c latest) -gt 0 ] || docker build --force-rm=true --no-cache=true -t "rathena:latest" .
