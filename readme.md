@@ -1,7 +1,7 @@
 
 # [rathena-docker](https://github.com/cdelorme/rathena-docker)
 
-**Dockerized rAthena for _local_ testing and demonstrating distributed installations.**
+**Dockerized rAthena for _local_ testing.**
 
 The project consists of two main components:
 
@@ -18,9 +18,9 @@ This project requires `docker`, a host with `bash`, and the `debian:jessie` imag
 
 ## configuration
 
-Sane defaults are provided inside [`rathena/`](rathena/).  **For automation do not modify the existing defaults**, but feel free to append more configuration settings.  _Files added here will override or replace the files in the cloned `rathena`, which means source code can also be added with matching paths._
+All configuration is handled via inputs through `deploy.sh`.  **For automation support do not modify existing defaults within [`rathena/conf/import/`](rathena/conf/import/)**, though you are welcome to add to them.
 
-If you want more fine-tuned control feel free to modify [`deploy.sh`](deploy.sh) or the commands in the [`Dockerfile`](Dockerfile).
+The only configurable settings are the prere, packetver, and repo versions.  _While I would like to add more, the complexity it adds and time to finish would be significant, and the original goal of this project has failed due to limitations of the technology._
 
 
 ## usage
@@ -28,11 +28,18 @@ If you want more fine-tuned control feel free to modify [`deploy.sh`](deploy.sh)
 Simply run [`./deploy.sh`](deploy.sh) and follow the interactive prompts.  _You can pre-emptively set environment variables to answer the questions, for details [view the source](deploy.sh)._
 
 
-## Pre-emptive FAQ:
+## preemptive faq
 
 - why dockerize rathena?
-	- primarily to cheaply test distributed deployments, but also to allow the easy creation of distributable rathena images, and the option to build without installing any specific dependencies on your host machine.  Isolation assures that the commands run are valid and not influence by your systems state.
+	- primarily to make it easy to isolate a predictable build environment so newcomers can easily get rathena up and running, and so developers have a quick play-test instance to work with.
 - why a single image with mysql preloaded?
-	- to reduce complexity and subsequently human error; to provide a consistent and compatible state when testing distributed deployments; to ensure code versions are compatible; to ensure compilation settings are compatible; to ensure both database data and text file data are compatible (_while a database may be used, many systems still load from text files at launch_)
-- can I use these in production?
-	- _This system is not for producing efficient, independent, deployable production components, but rather for locally testing and demonstrating only._  The rathena project is monolithically structured, and to efficiently build and deploy all the parts independently would be an especially sizable undertaking to automate.
+	- docker limitations with regard to post-runtime configuration forced my hand, but reducing complexity and subsequently human error are the positives.
+- can I distribute the container?
+	- I think anyone would be ill-advised to use docker for production deployments, and this image does not produce an efficient server instance.
+
+
+## notes
+
+I spent roughly three weeks tinkering, and concluded that any attempts to use `docker exec` and `docker run` to modify the instance prior to starting up `rathena` components, such as would be required to tailor the system for distributed computing, were simply not supported.
+
+Attempts to do this led to zombied processes and a whole lot of reading on how docker enforces single-processes.  This seems to be fine using `CMD` to startup the database and server using `docker create`, but it has zero flexibility once the image has been built.
