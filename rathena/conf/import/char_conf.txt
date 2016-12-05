@@ -3,3 +3,4 @@ passwd: secret
 char_ip: 127.0.0.1
 login_ip: 127.0.0.1
 pincode_enabled: no
+start_point: izlude,192,210:izlude_a,192,210:izlude_b,192,210:izlude_c,192,210

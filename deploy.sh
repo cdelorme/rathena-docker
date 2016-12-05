@@ -36,7 +36,7 @@ if [ "$build" = "y" ]; then
 	fi
 	export version="${version:-master}"
 	export prere="${prere:-no}"
-	export packetver="${packetver:-20151029}"
+	export packetver="${packetver:-20151104}"
 fi
 if [ $(docker ps -qaf "name=rathena" | wc -l) -gt 0 ]; then
 	grab_yes_no "teardown" "would you like to teardown the existing instance"

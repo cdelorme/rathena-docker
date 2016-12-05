@@ -2,7 +2,7 @@ FROM debian:jessie
 
 # accept arguments
 ARG version=master
-ARG packetver=20151029
+ARG packetver=20151104
 ARG prere=no
 
 # set arguments as build configuration
