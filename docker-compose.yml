@@ -1,0 +1,56 @@
+version: "3.7"
+networks:
+  services:
+    driver: bridge
+    name: services
+    ipam:
+      config:
+        - subnet: "172.16.24.0/28" # range 172.16.24.1 - 172.16.24.14
+services:
+  maria1:
+    container_name: "maria1"
+    image: "rathena:test"
+    command: /bin/sh -c "/etc/init.d/mysql start && tail -f /dev/null"
+    environment:
+      version: "master"
+      packetver: "20180621"
+      prere: "no"
+    networks:
+      services:
+        ipv4_address: 172.16.24.2
+    build:
+      context: .
+      dockerfile: Dockerfile
+  login:
+    container_name: "login"
+    image: "rathena:test"
+    command: /rathena/login-server
+    volumes:
+      - ./config/login:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.4
+    depends_on:
+      - maria1
+  char1:
+    container_name: "char1"
+    image: "rathena:test"
+    command: /rathena/char-server
+    volumes:
+      - ./config/char1:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.5
+    depends_on:
+      - login
+  map1:
+    container_name: "map1"
+    image: "rathena:test"
+    command: /rathena/map-server
+    volumes:
+      - ./config/map1:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.7
+    depends_on:
+      - char1

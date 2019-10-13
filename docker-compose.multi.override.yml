@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+  maria2:
+    container_name: "maria2"
+    image: "rathena:test"
+    command: /bin/sh -c "/etc/init.d/mysql start && tail -f /dev/null"
+    networks:
+      services:
+        ipv4_address: 172.16.24.3
+    depends_on:
+      - maria1
+  char2:
+    container_name: "char2"
+    image: "rathena:test"
+    command: /rathena/char-server
+    volumes:
+      - ./config/char2:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.6
+    depends_on:
+      - login
+      - maria2
+  map2:
+    container_name: "map2"
+    image: "rathena:test"
+    command: /rathena/map-server
+    volumes:
+      - ./config/map2:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.8
+    depends_on:
+      - char2
+  map3:
+    container_name: "map3"
+    image: "rathena:test"
+    command: /rathena/map-server
+    volumes:
+      - ./config/map3:/rathena/conf/import
+    networks:
+      services:
+        ipv4_address: 172.16.24.9
+    depends_on:
+      - char2
