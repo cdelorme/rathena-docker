@@ -1,4 +1,0 @@
-userid: server
-passwd: secret
-map_ip: 127.0.0.1
-char_ip: 127.0.0.1
