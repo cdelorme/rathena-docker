@@ -1,0 +1,7 @@
+server_name: Single
+userid: char1
+passwd: secret
+char_ip: 172.16.24.5
+login_ip: 172.16.24.4
+pincode_enabled: no
+start_point: izlude,192,210:izlude_a,192,210:izlude_b,192,210:izlude_c,192,210

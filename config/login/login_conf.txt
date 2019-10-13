@@ -1,0 +1,1 @@
+use_MD5_passwords: yes

@@ -1,0 +1,19 @@
+login_server_ip: 172.16.24.2
+login_server_port: 3306
+login_server_id: rathena
+login_server_pw: dbsecure
+login_server_db: ragnarok
+
+ipban_db_ip: 172.16.24.2
+ipban_db_port: 3306
+ipban_db_id: rathena
+ipban_db_pw: dbsecure
+ipban_db_db: ragnarok
+
+log_db_ip: 172.16.24.2
+log_db_port: 3306
+log_db_id: rathena
+log_db_pw: dbsecure
+log_db_db: ragnarok
+
+use_sql_db: yes
