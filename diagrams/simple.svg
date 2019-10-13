@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="343px" preserveAspectRatio="none" style="width:200px;height:343px;" version="1.1" viewBox="0 0 200 343" width="200px" zoomAndPan="magnify"><defs><filter height="300%" id="fbbrc6ic24ehm" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[23689a62b5e80204d759960f89ec0344]
+entity Login--><rect fill="#FEFECE" filter="url(#fbbrc6ic24ehm)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="68.5" y="200"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="63.5" y="205"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="63.5" y="226.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="78.5" y="222.9951">Login</text><!--MD5=[fa1e3283224feb76407c84b7e90ed808]
+entity Database--><rect fill="#FEFECE" filter="url(#fbbrc6ic24ehm)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="86" x="6" y="8"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1" y="13"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1" y="34.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="16" y="30.9951">Database</text><!--MD5=[7360478beb8e2d0a5e638b0f00e60bba]
+entity Character--><rect fill="#FEFECE" filter="url(#fbbrc6ic24ehm)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="87" x="102.5" y="104"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="97.5" y="109"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="97.5" y="130.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="112.5" y="126.9951">Character</text><!--MD5=[2596564e44ab3aa47d7c167100f8b894]
+entity Map--><rect fill="#FEFECE" filter="url(#fbbrc6ic24ehm)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="49" x="127.5" y="8"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="122.5" y="13"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="122.5" y="34.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="29" x="137.5" y="30.9951">Map</text><!--MD5=[0ba5ee7700168656dc1b457c6fe9fdac]
+entity Client--><rect fill="#FEFECE" filter="url(#fbbrc6ic24ehm)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="67.5" y="296"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="62.5" y="301"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="62.5" y="322.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="77.5" y="318.9951">Client</text><!--MD5=[ba75c9ae0e25f5d15351118fc380e81c]
+reverse link Database to Login--><path d="M58.2702,63.694 C68.6383,104.735 84.9866,169.447 92.7001,199.979 " fill="none" id="Database&lt;-Login" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="51.4564,65.302,53.3443,44.196,65.0299,61.873,51.4564,65.302" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d78d5d00bc413a3f10de3cba8bae56c8]
+reverse link Database to Character--><path d="M81.3333,58.333 C97.007,73.522 115.224,91.176 128.321,103.868 " fill="none" id="Database&lt;-Character" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="76.2824,63.186,66.7913,44.241,86.0252,53.132,76.2824,63.186" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6a9930bf2c5d24a8b07ff0eea8957e02]
+link Character to Login--><path d="M137.013,140.241 C128.931,155.744 117.025,178.586 108.301,195.321 " fill="none" id="Character-&gt;Login" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="105.9304,199.868,113.6368,193.7352,108.241,195.4339,106.5423,190.0382,105.9304,199.868" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[14a6da52589a67ac5f9af51755e68179]
+reverse link Database to Map--><path d="M112.084,26 C117.115,26 122.146,26 127.177,26 " fill="none" id="Database&lt;-Map" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="112.051,33,92.0508,26,112.051,19,112.051,33" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[782cea5a71dec47b72c16c7043768db5]
+link Map to Character--><path d="M150.9,44.241 C149.927,59.479 148.502,81.807 147.439,98.458 " fill="none" id="Map-&gt;Character" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="147.094,103.868,151.6593,95.1411,147.4126,98.8782,143.6755,94.6314,147.094,103.868" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2e7362bf593ed10fb57d185f04321667]
+reverse link Login to Client--><path d="M97,241.6621 C97,258.3399 97,280.6642 97,295.8683 " fill="none" id="Login&lt;-Client" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="97,236.241,93,245.241,97,241.241,101,245.241,97,236.241" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8e77e68a93378f044ec738c3527bb2c7]
+@startuml
+[Login] -left-|> [Database]
+[Character] -left-|> [Database]
+[Character] -down-> [Login]
+[Map] -left-|> [Database]
+[Map] -down-> [Character]
+[Client] -up-> [Login]
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 10:02:15 UTC 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
