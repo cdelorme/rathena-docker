@@ -11,16 +11,16 @@ services:
     container_name: "maria1"
     image: "rathena:test"
     command: /bin/sh -c "/etc/init.d/mysql start && tail -f /dev/null"
-    environment:
-      version: "master"
-      packetver: "20180621"
-      prere: "no"
     networks:
       services:
         ipv4_address: 172.16.24.2
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        version: "master"
+        packetver: "20180621"
+        prere: "no"
   login:
     container_name: "login"
     image: "rathena:test"

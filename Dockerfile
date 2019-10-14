@@ -1,4 +1,9 @@
 FROM debian:buster
+
+ARG version="master"
+ARG packetver="20180621"
+ARG prere="no"
+
 WORKDIR /rathena
 COPY . /compose
 
@@ -15,7 +20,7 @@ RUN apt update && \
 	(cd tools/ && ./convert_sql.pl --i=../db/re/item_db.txt --o=../sql-files/item_db_re.sql -t=re --m=item) && \
 	for F in sql-files/*.sql; do mysql -u root --password="default" ragnarok < $F; done && \
 	mysql ragnarok -u root --password="default" -e "update login set login.userid = 'char1', login.user_pass = md5('secret') where login.account_id = 1; insert into login (account_id, userid, user_pass, sex, email) values (2, 'char2', md5('secret'), 'S', 'athena@athena.com');" && \
-	./configure --enable-prere=${prere:-no} --enable-packetver=${packetver:-20151104} && \
+	./configure --enable-prere=${prere:-no} --enable-packetver=${packetver:-20180621} && \
 	make clean && \
 	make server && \
 	/etc/init.d/mysql stop
