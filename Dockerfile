@@ -11,7 +11,7 @@ ENV packetver ${packetver}
 ENV version ${version}
 
 # install dependent packages, secure mysql, and download rathena source
-RUN (echo "mysql-server mysql-server/root_password password default" | debconf-set-selections) && (echo "mysql-server mysql-server/root_password_again password default" | debconf-set-selections) && apt-get update && apt-get upgrade -yq && apt-get install --no-install-recommends -yq git make gcc libmysqlclient-dev zlib1g-dev libpcre3-dev mysql-server libmysqlclient-dev ca-certificates
+RUN (echo "mysql-server mysql-server/root_password password default" | debconf-set-selections) && (echo "mysql-server mysql-server/root_password_again password default" | debconf-set-selections) && apt-get update && apt-get upgrade -yq && apt-get install --no-install-recommends -yq git make gcc g++ libmysqlclient-dev zlib1g-dev libpcre3-dev mysql-server ca-certificates
 RUN /etc/init.d/mysql start && mysql -u root --password="default" -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1'); DELETE FROM mysql.user WHERE User=''; DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'; FLUSH PRIVILEGES;"
 RUN git clone https://github.com/rathena/rathena.git /rathena && cd /rathena && git checkout $version
 
