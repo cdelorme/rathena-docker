@@ -1,0 +1,5 @@
+
+// customizable
+use_MD5_passwords: yes
+new_account: yes
+new_acc_length_limit: no

@@ -1,0 +1,12 @@
+
+// required
+login_ip: rathena
+char_ip: 127.0.0.1
+userid: server
+passwd: spass
+
+
+// customizable
+server_name: rathena
+pincode_enabled: no
+start_zeny: 10000000

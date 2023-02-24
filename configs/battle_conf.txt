@@ -1,0 +1,31 @@
+
+// customizable
+delay_battle_damage: no
+
+item_drop_common_min: 5
+item_drop_heal_min: 5
+item_drop_use_min: 5
+item_drop_equip_min: 5
+item_drop_card_min: 5
+
+base_exp_rate: 10000
+job_exp_rate: 10000
+multi_level_up: yes
+heal_exp: 100
+resurrection_exp: 100
+shop_exp: 100
+death_penalty_base: 0
+death_penalty_job: 0
+
+vending_tax: 0
+
+mob_count_rate: 150
+mob_spawn_delay: 50
+plant_spawn_delay: 50
+
+restart_hp_rate: 100
+restart_sp_rate: 100
+natural_healhp_interval: 2000
+natural_healsp_interval: 3000
+natural_heal_skill_interval: 4000
+prevent_logout: 0

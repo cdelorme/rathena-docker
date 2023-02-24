@@ -1,0 +1,10 @@
+
+// required
+char_ip: rathena
+map_ip: 127.0.0.1
+userid: server
+passwd: spass
+
+
+// customizable
+save_settings: 0

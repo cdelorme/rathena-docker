@@ -1,0 +1,50 @@
+services:
+    client: # @note: you can comment this out if you don't need the client
+        image: frolvlad/alpine-python2
+        user: ${UID:-1000}:${GID:-1000} # @note: otherwise root will own the file
+        volumes:
+            - ./:/downloads
+        working_dir: /downloads
+        command: /bin/sh -c '[ ! -f 2021-11-03_Ragexe_1635926200.exe ] && wget -qO- "http://nemo.herc.ws/get4.py" | python2 - 2021-11-03_Ragexe_1635926200'
+    db:
+        image: "mariadb:jammy"
+        environment:
+            MARIADB_ROOT_PASSWORD: dbpass
+            MARIADB_DATABASE: ragnarok
+            MARIADB_USER: dbuser
+            MARIADB_PASSWORD: dbpass
+        healthcheck:
+            test: ["CMD-SHELL", "mysql $$MARIADB_DATABASE -u$$MARIADB_USER -p$$MARIADB_PASSWORD -e 'SELECT 1;' || exit 1"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+    rathena:
+        build:
+            dockerfile: Dockerfile
+        image: "cdelorme/rathena:master"
+        init: true
+        tty: true
+        stdin_open: true
+        volumes:
+            - "./configs:/configs:ro"
+            - "./rathena-setup.sh:/rathena-setup.sh:ro"
+        command: bash -c '/rathena-setup.sh && /rathena/athena-start start && /bin/sh'
+        environment:
+            MARIADB_DATABASE: ragnarok
+            MARIADB_USER: dbuser
+            MARIADB_PASSWORD: dbpass
+            MARIADB_HOST: db # container hostname
+            SERVER_ACCOUNT: server
+            SERVER_PASSWORD: spass
+            GM_ACCOUNT: gm
+            GM_PASSWORD: gmpass
+            VERSION: master
+            BUILDARGS: # set this if you want to set things like packetver, pre-re, etc...
+        ports:
+            - "6900:6900" # login server
+            - "6121:6121" # char server
+            - "5121:5121" # map server
+            - "8888:8888" # web server
+        depends_on:
+            db:
+                condition: service_healthy

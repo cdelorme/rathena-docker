@@ -1,0 +1,39 @@
+
+// required
+login_server_ip: db
+ipban_db_ip: db
+char_server_ip: db
+map_server_ip: db
+web_server_ip: db
+log_db_ip: db
+
+login_server_id: dbuser
+ipban_db_id: dbuser
+char_server_id: dbuser
+map_server_id: dbuser
+web_server_id: dbuser
+log_db_id: dbuser
+
+login_server_pw: dbpass
+ipban_db_pw: dbpass
+char_server_pw: dbpass
+map_server_pw: dbpass
+web_server_pw: dbpass
+log_db_pw: dbpass
+
+// @note: these are the default but we're adding them for clarify
+login_server_db: ragnarok
+ipban_db_db: ragnarok
+char_server_db: ragnarok
+map_server_db: ragnarok
+web_server_db: ragnarok
+log_db_db: ragnarok
+
+// @note: this is the modern approach; it means the yml files will be the source for item and monster data
+//        if you set it to yes it will try to load them into the database, but this can create new bugs and
+//        is not considered beneficial for performance.
+use_sql_db: no
+
+
+// customizable
+party_share_level: 45
