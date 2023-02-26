@@ -5,7 +5,7 @@ This is a wrapper I created because I wanted to quickly startup a local copy of 
 
 _This means that instead of standing up each server as an independent container we just have two; one for the database and one for `athena-start` (which runs all 4 servers)._
 
-Tweak the `configs/` to your preference.
+Tweak the files in `rathena/` to your preference, and match the rathena repository for overrides.
 
 _Avoid editing the sections under the `// required` heading without being aware of what that will do._
 
@@ -53,7 +53,7 @@ _Currently a full build in isolation with an alpine linux container takes about 
 
 Docker containers have their own private network layer which makes it exceedingly complex to support both inter-service communication, as well as expose a functional public facing address.
 
-This is why the `configs/` have a mixture of `127.0.0.1` and the container names (eg. `db` and `rathena`).
+This is why the files in `rathena/conf/import/` have a mixture of `127.0.0.1` and the container names (eg. `db` and `rathena`).
 
 While then host system may map traffic to an exposed port off `127.0.0.1`, the container's network does not share those same rules and may need some private address.
 
@@ -83,7 +83,7 @@ This behavior is not like most other modern databases and seems to stem from poo
 An alternative method of accessing the database without exposing the port is to connect to the container first:
 
 	docker-compose exec db bash
-	mysql $MARIADB_DATABASE -u$MARIADB_USER -p$MARIADB_PASSWORD
+	mariadb $MARIADB_DATABASE -u$MARIADB_USER -p$MARIADB_PASSWORD
 
 
 ## client
@@ -152,21 +152,7 @@ Finally, add the patched exe into the game directory.
 > For linux I launched lutris, downloaded a recent version of lutris-wine-proton-ge, and added a game manually, giving it a wine prefix path to isolate it, and setting the executable and launch directory.  I had some additional issues with multiple monitors where my preferred display wouldn't render updates (eg. looked like a frozen screen but I could still interact with it and hear BGM & sounds).  To resolve that I set a virtual desktop and changed the client to run in fullscreen.
 
 
-## bugs
-
-- Lots of conflicting documentation on using SQL, I tried with `use_sql_db: yes` but got infinite yml errors
-	- Turns out the modern approach is to use the yml files rather than the sql, and I set `use_sql_db: no` and only loaded `main.sql`, `logs.sql`, and `web.sql` and no more issues!
-- The `web-server` runs but returns a 404 when accessed from `http://localhost:8888`
-	- According to what little documentation I could find this is mostly used to deliver animated guild emblems and isn't a management server, so this may not be a bug but "working as intended"
-- I tried half a dozen clients with both Nemo and Warp which worked up until logging in with a character and even interacting with the map before crashing after a few seconds
-	- Unsure of why this is but maybe a system library is broken since I managed to resolve this by using lutris to create a bottle with a proton-ge version
-
-
 ## future
-
-I could add a directory that gets rsync'd or diff'd over the rathena source, which would allow the inclusion of custom files or patches to replace the source.
-
-I may add more detailed steps regarding Warp, but for now I think a brief overview and a profile that can be loaded would suffice.
 
 I may switch from merging llchrisll's directories to using a grf editor to wrap things up.  _This seems like it would be more helpful if adding custom resources, but comes at the cost of needing to repackage anytime you change the rathena address._
 

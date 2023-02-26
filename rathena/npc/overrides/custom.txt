@@ -1,0 +1,546 @@
+
+// Recettear Script
+-	script	Recettear#base	-1,{
+	mes "[Recettear]";
+	mes "What would you like to reset?";
+	switch ( select( "Stats", "Skills", "Nevermind" ) ) {
+	case 1:
+		ResetStatus;
+		end;
+	case 2:
+		sc_end_class;
+		ResetSkill;
+		end;
+	case 4:
+		end;
+	}
+}
+
+// Recettear instances @ izlude
+izlude,147,198,6	duplicate(Recettear#base)	Recettear#iz	4_F_DRKAFRA01
+izlude_a,147,198,6	duplicate(Recettear#base)	Recettear#iz_a	4_F_DRKAFRA01
+izlude_b,147,198,6	duplicate(Recettear#base)	Recettear#iz_b	4_F_DRKAFRA01
+izlude_c,147,198,6	duplicate(Recettear#base)	Recettear#iz_c	4_F_DRKAFRA01
+izlude_d,147,198,6	duplicate(Recettear#base)	Recettear#iz_d	4_F_DRKAFRA01
+
+
+// Refinery Script
+-	script	Refinery#base	-1,{
+	mes "[Refinery]";
+	mes "What equipment needs refinement?";
+
+	// have user select from equipped items
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	for(set .@i,1; .@i<=10; set .@i,.@i+1)
+		.@menu$ = .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]): F_getpositionname(.@indices[.@i]) +" - [Unarmed]" ) +":";
+	.@part = .@indices[ select(.@menu$) ];
+	.@refinerycnt = getequiprefinerycnt(.@part); // save refinery count
+
+	// skip if it's already at max refinement of 10
+	if (.@refinerycnt >= 10) {
+		mes "[Refinery]";
+		mes "That item has already been fully refined...";
+		close;
+	}
+
+	// max out the item at 10, subtracting previous refinements from the total
+	successrefitem .@part,10-.@refinerycnt;
+	end;
+}
+
+// Refinery instances @ izlude
+izlude,150,198,6	duplicate(Refinery#base)	Refinery#iz	4_F_DRKAFRA01
+izlude_a,150,198,6	duplicate(Refinery#base)	Refinery#iz_a	4_F_DRKAFRA01
+izlude_b,150,198,6	duplicate(Refinery#base)	Refinery#iz_b	4_F_DRKAFRA01
+izlude_c,150,198,6	duplicate(Refinery#base)	Refinery#iz_c	4_F_DRKAFRA01
+izlude_d,150,198,6	duplicate(Refinery#base)	Refinery#iz_d	4_F_DRKAFRA01
+
+
+// Endow Scrolls for elemental attack enchantment
+//	12114: elemental converter (fire)
+//	12115: elemental converter (water)
+//	12116: elemental converter (earth)
+//	12117: elemental converter (wind)
+-	shop	Endow Scrolls#base	-1,12114:1,12115:1,12116:1,12117:1
+
+// Ammunitions for Archers
+//	12004: Quiver
+//	12005: Iron Arrow Quiver
+//	12006: Steel Arrow Quiver
+//	12007: Oridecon Arrow Quiver
+//	12008: Fire Arrow Quiver
+//	12009: Silver Arrow Quiver
+//	12010: Wind Arrow Quiver
+//	12011: Stone Arrow Quiver
+//	12012: Crystal Arrow Quiver
+//	12013: Shadow Arrow Quiver
+//	12014: Immaterial Arrow Quiver
+//	12015: Rusty Arrow Quiver
+//	12183: Holy Arrow Quiver
+-	shop	Munitions#base	-1,12004:1,12005:1,12006:1,12007:1,12008:1,12009:1,12010:1,12011:1,12012:1,12013:1,12014:1,12015:1,12183:1
+
+// Potion Shop
+//	645: Concentration Potion
+//	656: Awakening Potion
+//	657: Berserk Potion
+-	shop	Potions#base	-1,645:1,656:1,657:1
+
+// Supplier Script
+-	script	Supplier#base	-1,{
+	mes "[Supplier]";
+	mes "Which supplies would you like?";
+	switch ( select( "Endow Scrolls", "Ammo", "Potions", "Nevermind" ) ) {
+	case 1:
+		callshop "Endow Scrolls#base", 1;
+		end;
+	case 2:
+		callshop "Munitions#base", 1;
+		end;
+	case 3:
+		callshop "Potions#base", 1;
+		end;
+	case 4:
+		end;
+	}
+}
+
+// Supplier instances @ izlude
+izlude,152,193,2	duplicate(Supplier#base)	Supplier#iz	4_F_DRKAFRA01
+izlude_a,152,193,2	duplicate(Supplier#base)	Supplier#iz_a	4_F_DRKAFRA01
+izlude_b,152,193,2	duplicate(Supplier#base)	Supplier#iz_b	4_F_DRKAFRA01
+izlude_c,152,193,2	duplicate(Supplier#base)	Supplier#iz_c	4_F_DRKAFRA01
+izlude_d,152,193,2	duplicate(Supplier#base)	Supplier#iz_d	4_F_DRKAFRA01
+
+
+// Refinement Materials
+//	1010: Phracon
+//	1011: Emveretarcon
+//	984: Oridecon
+//	985: Elunium
+//	714: Emperium
+//	989: Emperium Anvil
+//	612: Mini Furnace
+//	1002: Iron Ore
+//	998: Iron
+//	1002: Coal
+-	shop	Refinement Materials#base	-1,1010:1,1011:1,984:1,985:1,714:1,989:1,612:1,1002:1,998:1,1002:1
+
+// Elemental Stones
+//	990: Red Blood
+//	994: Flame Heart
+//	991: Crystal Blue
+//	995: Mystic Frozen
+//	992: Wind of Verdure
+//	996: Rough Wind
+//	993: Green Live
+//	997: Great Nature
+//	1001: Star Dust
+//	1000: Star Crumb
+-	shop	Elemental Stones#base	-1,990:1,994:1,991:1,995:1,992:1,996:1,993:1,997:1,1001:1,1000:1
+
+// Axesmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	922: Orc Fang
+//	719: Amethyst
+-	shop	Axesmith#base	-1,998:1,999:1,984:1,922:1,719:1
+
+// Daggersmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	909: Jelopy
+//	727: Sapphire
+//	729: Zircon
+-	shop	Daggersmith#base	-1,998:1,999:1,984:1,909:1,727:1,729:1
+
+// Knucklesmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	722: Pearl
+//	723: Ruby
+//	727: Opal
+//	728: Topaz
+-	shop	Knucklesmith#base	-1,998:1,999:1,984:1,722:1,723:1,727:1,728:1
+
+// Macesmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	730: 1Carat Diamond
+//	963: Sharp Scale
+//	968: Heroic Emblem
+-	shop	Macesmith#base	-1,998:1,999:1,984:1,730:1,963:1,968:1
+
+// Spearsmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	720: Aquamarine
+//	723: Ruby
+//	923: Evil Horn
+-	shop	Spearsmith#base	-1,998:1,999:1,984:1,720:1,723:1,923:1
+
+// Swordsmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	913: Tooth of Bat
+//	920: Wolf Claw
+//	727: Opal
+//	728: Topaz
+//	718: Garnet
+//	724: Cursed Ruby
+-	shop	Swordsmith#base	-1,998:1,999:1,984:1,913:1,920:1,727:1,728:1,718:1,724:1
+
+// TwoSwordsmith
+//	998: Iron
+//	999: Steel
+//	984: Oridecon
+//	958: Horrendous Mouth
+//	957: Decayed Nail
+//	733: Cracked Diamond
+-	shop	TwoSwordsmith#base	-1,998:1,999:1,984:1,958:1,957:1,733:1
+
+// Forger Script
+-	script	Forger#base	-1,{
+	mes "[Forger]";
+	mes "What are you looking to forge?";
+	switch ( select( "Refinement Materials", "Elemental Stones", "Axesmith", "Daggersmith", "Knucklesmith", "Macesmith", "Spearsmith", "Swordsmith", "TwoSwordsmith", "Nevermind" ) ) {
+	case 1:
+		callshop "Refinement Materials#base", 1;
+		end;
+	case 2:
+		callshop "Elemental Stones#base", 1;
+		end;
+	case 3:
+		mes "Axe: 10 Iron";
+		mes "Battle Axe: 110 Iron";
+		mes "Hammer: 30 Steel";
+		mes "Buster: 4 Oridecon, 20 Steel, 30 Orc Fang";
+		mes "Two-Handed Axe: 8 Oridecon, 10 Steel, 1 Amethyst";
+		callshop "Axesmith#base", 1;
+		end;
+	case 4:
+		mes "Knife: 1 Iron, 10 Jelopy";
+		mes "Cutter: 25 Iron";
+		mes "Main Gauche: 50 Iron";
+		mes "Dirk: 17 Steel";
+		mes "Dagger: 30 Steel";
+		mes "Stiletto: 40 Steel";
+		mes "Gladius: 4 Oridecon, 40 Steel, 1 Sapphire";
+		mes "Damascus: 4 Oridecon, 60 Steel, 1 Zircon";
+		callshop "Daggersmith#base", 1;
+		end;
+	case 5:
+		mes "Waghnak: 160 Iron, 1 Pearl";
+		mes "Knuckle Dusters: 50 Steel";
+		mes "Studded Knuckles: 65 Steel";
+		mes "Fist: 4 Oridecon, 10 Ruby";
+		mes "Finger: 4 Oridecon, 10 Opal";
+		mes "Claw: 8 Oridecon, 10 Topaz";
+		callshop "Knucklesmith#base", 1;
+		end;
+	case 6:
+		mes "Club: 3 Iron";
+		mes "Mace: 30 Iron";
+		mes "Smasher: 20 Steel";
+		mes "Flail: 33 Steel";
+		mes "Chain: 45 Steel";
+		mes "Morning Star: 85 Steel, 1 1Carat Diamond";
+		mes "Sword Mace: 100 Steel, 20 Sharp Scale";
+		mes "Stunner: 120 Steel, 1 Heroic Emblem";
+		callshop "Macesmith#base", 1;
+		end;
+	case 7:
+		mes "Javelin: 3 Iron";
+		mes "Spear: 35 Iron";
+		mes "Pike: 70 Iron";
+		mes "Guisarm: 25 Steel";
+		mes "Glaive: 40 Steel";
+		mes "Partizan: 55 Steel";
+		mes "Trident: 8 Oridecon, 10 Steel, 5 Aquamarine";
+		mes "Hallberd: 12 Oridecon, 10 Steel";
+		mes "Lance: 12 Oridecon, 3 Ruby, 2 Evil Horn";
+		callshop "Spearsmith#base", 1;
+		end;
+	case 8:
+		mes "Sword: 2 Iron";
+		mes "Falchion: 30 iron";
+		mes "Blade: 45 Iron, 25 Tooth of Bat";
+		mes "Rapier: 20 Steel";
+		mes "Scimiter: 35 Steel";
+		mes "Ring Pommel Saber: 40 Steel, 50 Wolf Claw";
+		mes "Saber: 8 Oridecon, 5 Steel, 1 Opal";
+		mes "Haedonggum: 8 Oridecon, 10 Steel, 1 Topaz";
+		mes "Tsurugi: 8 Oridecon, 15 Steel, 1 Garnet";
+		mes "Flamberge: 16 Oridecon, 1 Cursed Ruby";
+		callshop "Swordsmith#base", 1;
+		end;
+	case 9:
+		mes "Katana: 35 Iron, 15 Horrendous Mouth";
+		mes "Slayer: 25 Steel, 20 Decayed Nail";
+		mes "Bastard Sword: 45 Steel";
+		mes "Two Handed Sword: 12 Oridecon, 10 Steel";
+		mes "Broad Sword: 12 Oridecon, 20 Steel";
+		mes "Claymore: 16 Oridecon, 20 Steel, 1 Cracked Diamond";
+		callshop "TwoSwordsmith#base", 1;
+		end;
+	case 10:
+		end;
+	}
+}
+
+// Forger instances @ izlude
+izlude,152,196,2	duplicate(Forger#base)	Forger#iz	4_F_DRKAFRA01
+izlude_a,152,196,2	duplicate(Forger#base)	Forger#iz_a	4_F_DRKAFRA01
+izlude_b,152,196,2	duplicate(Forger#base)	Forger#iz_b	4_F_DRKAFRA01
+izlude_c,152,196,2	duplicate(Forger#base)	Forger#iz_c	4_F_DRKAFRA01
+izlude_d,152,196,2	duplicate(Forger#base)	Forger#iz_d	4_F_DRKAFRA01
+
+// Weaponry Shop
+//	1208: main gauche [4]
+//	1217: Stiletto [3]
+//	1220: Gladius [3]
+//	1226: Damascus [2]
+//	1223: fortune sword
+//	1237: Grim Tooth
+//	13017: Ice Pick [1]
+//	1251: Jur [3]
+//	1264: Specialty Jur [4]
+//	1275: Katar of Frozen Icicle [3]
+//	1276: Katar of Quaking [3]
+//	1277: Katar of Raging Blaze [3]
+//	1278: Katar of Piercing Wind [3]
+//	1601: Rod [4], L1, 15 atk, +15% MATK
+//	1608: Staff [3], L12, 40 atk, +2 int, +15% MATK
+//	1611: Arc Wand [2], L24, 60 atk, +3 int, +15% MATK
+//	1658: Eden Staff III
+//	1626: Piercing Staff, L70, ignore 10% mdef
+//	1532: Stunner [2]
+//	2102: Guard [1]
+//	2104: Buckler [1]
+-	shop	Weaponry#base	-1,1208:1,1217:1,1220:1,1226:1,1223:1,1237:1,13017:1,1251:1,1264:1,1275:1,1276:1,1277:1,1278:1,1601:1,1608:1,1611:1,1658:1,1626:1,1532:1,2102:1,2104:1
+
+// Headgear Shop
+//	5775: Chocolate Donut, +50 hp
+//	5362: Ninja Scroll, +1% MATK, cannot drop
+//	2202: Sunglasses [1], 5% blind resist
+//	5191: Black Ribbon [1], 2 def, +3 mdef, +1 int
+//	2233: Circlet [1], 6 def, +3 mdef
+//	5296: Dropping Nine Tail [1], +1 agi/crit
+//	5270: Autumn Leaves [1], +5 Perfect Dodge
+//	5567: Rage of Luster, +1 str, +10 crit/hit @ +7 refine, cannot drop
+//	5481: Hermode Cap [1], +3% atk, +5 aspd, +4% atk @ refine +9, +1% atk @ refine +10, cannot drop
+//	5465: Hat of Fortune [1], L40, +2 luk, +5 mdef, +1 luk per refine after 5
+//	18597: Mercury Riser [1], L70, +3 crit/aspd, +2 crit/aspd @ +7 refine, +2 crit/aspd @ +9 refine
+-	shop	Headgear#base	-1,5775:1,5362:1,2202:1,5191:1,2233:1,5296:1,5270:1,5567:1,5481:1,5465:1,18597:1
+
+// Chestgear Shop
+//	2336: Thief Clothes [1], thief, +1 agi
+//	2326: Saint's Robe [1], acolyte & merchant
+//	2322: Silk Robe [1], mage
+//	2315: Chain Mail [1], thief/merc/swordsman
+//	2331: Tights [1], L45, archer, +1 dex
+//	2372: Mage Coat [1], L50, mage, +1 int, +5 MDEF
+//	2359: Ninja Suit [1], L50, thief, +1 agi, +3 mdef
+//	2318: Lord's Clothes [1], L70, merchant, +1 int, +5 mdef
+-	shop	Chestgear#base	-1,2336:1,2326:1,2322:1,2315:1,2331:1,2372:1,2359:1,2318:1
+
+// Footgear Shop
+//	2432: High Heels [1]
+//	2406: Boots [1]
+//	2410: Sleipnir, L94
+-	shop	Footgear#base	-1,2432:1,2406:1,2410:1
+
+// Accessories shop
+//	2523: Undershirt [1], 5 def, +1 mdef
+//	2506: Manteau [1], 13 def
+//	2525: Ancient Cape [1], L40, 9 def, +1 AGI
+//	2658: Nile Rose [1], +10 HP
+//	2607: Clip [1], +10 SP
+//	2671: Bow Thimble [1], L65, +3% Ranged Attack Damage
+//	2783: Eye Stone Ring [1], L70, +2 crit, +25 SP
+//	2730: Seal of Continental Guard [1], L80, +50 HP, +3% aspd
+//	2732: Death Loop [1], L80, +5 crit
+//	2621: Ring [1], L90, +1 str
+//	2622: Earring [1], L90, +1 int
+//	2624: Glove [1], L90, +1 dex
+//	2625: Brooch [1], L90, +1 agi
+//	2629: Megingjard, L94, 2 def, +40 STR, +7 MDEF
+//	2788: Bradium Earring [1], L60, +5 matk, +1 int, +1 dex
+//	2789: Bradium Ring [1], L60, +5 atk, +1 str, +1 vit
+-	shop	Accessorize#base	-1,2523:1,2506:1,2525:1,2658:1,2607:1,2671:1,2783:1,2730:1,2732:1,2621:1,2622:1,2624:1,2625:1,2629:1,2788:1,2789:1
+
+// Gearer Script
+-	script	Gearer#base	-1,{
+	mes "[Gearer]";
+	mes "Which type of equipment are you looking for?";
+	switch ( select( "Weaponry", "Headgear", "Chest", "Boots", "Accessories", "Nevermind" ) ) {
+	case 1:
+		callshop "Weaponry#base", 1;
+		end;
+	case 2:
+		callshop "Headgear#base", 1;
+		end;
+	case 3:
+		callshop "Chestgear#base", 1;
+		end;
+	case 4:
+		callshop "Footgear#base", 1;
+		end;
+	case 5:
+		callshop "Accessorize#base", 1;
+		end;
+	case 6:
+		end;
+	}
+}
+
+// Gearer instances @ izlude
+izlude,150,191,0	duplicate(Gearer#base)	Gearer#iz	4_F_DRKAFRA01
+izlude_a,150,191,0	duplicate(Gearer#base)	Gearer#iz_a	4_F_DRKAFRA01
+izlude_b,150,191,0	duplicate(Gearer#base)	Gearer#iz_b	4_F_DRKAFRA01
+izlude_c,150,191,0	duplicate(Gearer#base)	Gearer#iz_c	4_F_DRKAFRA01
+izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
+
+
+// Weapon Cards Shop
+//	4043: Andre Card, +20 atk (_great for early leveling_)
+//	4117: Sidewinder, double attack
+//	4649: Infinite Phreeoni Card, +100 crit
+//	4086: Soldier Skeleton Card, +9 crit
+//	4496: Sealed Drake Card, +50% vs small, medium, and large, no graphic (eg. crashes)
+//	27361: Contaminated Wander Man Card, +30% damage vs medium & large
+//	27126: Boitata Card, +40% vs insect, brue, wind, and earth
+//	4408: Gloom Under Night Card, +40% vs angel, demon, shadow, and holy
+//	4140: Abysmal Knight Card, +25% vs boss
+//	4305: Turtle General Card, +20% vs all
+//	4579: Warrior Lola Card, for Maces add +20 atk, +10 crit
+//	4625: Timeholder Card, +20% MATK, +10% sp cost
+//	300151: Deep Sea Kraken Card, +25% ratk, +5 phit ???
+//	27086: Hollow Archer Skeleton Card, +20% bow dmg @ +10 refine
+//	4121: Phreeoni Card, +100 hit
+//	4421: Drosera Card, +15 crit /w ratk
+//	4147: Baphomet Card, attacks are aoe, -10 hit
+-	shop	Weapon Cards#base	-1,4043:1,4117:1,4649:1,4086:1,4496:1,27361:1,27126:1,4408:1,4140:1,4305:1,4579:1,4625:1,300151:1,27086:1,4121:1,4421:1,4147:1
+
+// Shield Cards Shop
+//	4012: Thief Bug Egg Card, +400 hp
+//	300235: Mushy Ant Egg Card, +10% sp, +1% hp per refine
+//	4636: Bijou Card, Immune Frozen, +10% atk/matk
+//	4253: Alice Card, -40% boss damage, +40% damage taken all others
+//	27178: Gaster Card, -25% damage normal monsters, +50% boss damage received
+//	4442: Tatacho Card, -20% neutral damage received, +5% damage to neutral
+//	4128: Golden Thief Bug Card, nullify all incoming magic, including support
+-	shop	Shield Cards#base	-1,4012:1,300235:1,4636:1,4253:1,27178:1,4442:1,4128:1
+
+// Headgear Cards Shop
+//	27109: Jitterbug Card, -10% Neutral Damage Received, +500 hp
+//	4288: Carat Card, +2 int, +150 sp @ +9 refine
+//	27115: Ominous Permeter Card, +1 int, +80 sp, +10 sp per 2 refine, +30% sp regen @ +7 refine
+//	4148: Pharaoh Card, -30% SP cost
+//	4599: Lichtern Red Card; +10 matk, +5% fire damage, +5% fire damage @ +9 refine
+//	4366: Kathryne Keyron Card, 1% reduced cast time per refine, +2% matk @ +9 refine
+//	4132: Mistress Card, gemstone nullify, +25% sp consumed (healer?)
+//	4143: Orc Hero Card, immune stun, +3 vit
+//	4403: Kiel-D-01 Card, 30% cast reduction (???)
+//	4556: Fenrir Card, +50 matk, +5 matk per refine, -70% cast time (fixed not variable?)
+//	4365: High Wizard Card, pierce normal monster magical defense, -100% sp recovery, +100% cast time
+-	shop	Headgear Cards#base	-1,27109:1,4288:1,27115:1,4148:1,4599:1,4366:1,4132:1,4143:1,4403:1,4556:1,4365:1
+
+// Armor Cards Shop
+//	4003: Pupa Card, +700 hp
+//	300266: Unknown Swordsman Card, +15% hp, +2% hp/dmg per +4 refine
+//	27326: Morocc's Minion Card, +100 atk, +25 aspd, -10% hp
+//	4563: Creator Card, +20 crit
+//	27082: Furious Nine Tail Card, +5 crit, +10% crit damage, +10 crit @ +10 refine
+//	4526: Weird Caelacanth Card, +5% sp, +50 mdef
+//	300148: Deep Sea Stouf Card, +10% hp, +5% sp
+-	shop	Armor Cards#base	-1,4003:1,300266:1,27326:1,4563:1,27082:1,4526:1,300148:1
+
+// Garment Cards Shop
+// 300016: Treasure Mimic Card, +5 crit, +30 flee
+// 4133: Raydric Card, +20% neutral damage resist
+// 4375: Orc Baby Card, +10/15% neutral damage resist, +10/15 flee
+// 4646: Infinite Chimera card, +8% hp, +4% sp
+// 4373: Green Maiden Card, +1 luk/crit per refinement, -5 luk
+// 4595: Cenere Card, +2 aspd per 10 agi
+// 300145: Deep Sea Witch Card, +100% fire & shadow dmg, +30% damage taken from elements
+-	shop	Garment Cards#base	-1,300016:1,4133:1,4375:1,4646:1,4373:1,4595:1,300145:1
+
+// Footgear Cards Shop
+// 4107: Verit Card, +8% hp/sp
+// 4100: Sohee Card, +15% sp, 3% sp recovery
+// 27152: Cutie Card, +10% hp, +1 agi/aspd per refine
+// 300081: Research Assistant Bot Card, +2 int, +10% hp/sp
+// 300089: Verporta Card, +2 str, +10% hp, +10% sp
+// 27383: Amdarai's Phantom Card, +10% hp, +5% sp
+// 27164: Faceworm Queen Card, -10% hp, +15 crit
+// 4482: Sealed General Egnigem Cenia Card, +5% hp/sp, recover 50/10 hp/sp every 10s
+// 300093: Papila Ruba Card, +2 int, +10% hp/sp, +5% holy light dmg
+// 300092: Greater Papila Card, +2 luk, +10% hp/sp, +50% cart revo dmg
+// 300184: Arena Blut Hase Card, +5% atk, +7% ratk
+// 300181: Arena Bully Card, +10% aspd, +7% crit dmg
+// 300180: Arena Gangster Card, +7 aspd, +10% crit dmg
+// 300183: Arena Ordre Card, +10% wind/water dmg
+// 4131: Moonlight Flower Card, Increase Movement Speed
+-	shop	Footgear Cards#base	-1,27383:1,300184:1,300181:1,300180:1,300089:1,4107:1,4100:1,300081:1,4482:1,4131:1,300093:1,300092:1,27164:1,27152:1,300183:1
+
+// Accessory Cards Shop
+// 4631:1 // Owl Viscount Card, +3% aspd
+// 27333:1 // Skia Nerius Card, +5% aspd
+// 300267:1 // Crow Baron Card, +5% aspd
+// 4272:1 // Zhu Po Long Card, +1 agi, +3 crit rate
+// 27116:1 // Ominous Heater Card, +3 crit, +5% crit damage
+// 4091:1 // Kobold Card, +4% crit, +1 str
+// 4433:1 // Imp Card, +25% fire bolt dmg, -25% fire bolt cast time
+// 300216:1 // Lava Toad Card, +35% fire damage, +10% sp consumption
+// 300222:1 // Firewind Kite Card, +35% wind damage, +10% sp consumption
+// 300211:1 // Ash Toad Card, +35% earth damage, +10% sp consumption
+// 27262:1 // Dwigh Card, +20% magical neutral & shadow damage
+// 300117:1 // Sharp Magic Card, +2 dex, +1 agi, +10% hp
+// 300116:1 // Powerful Magic Card, +2 str, +1 int, +10% hp
+// 300111:1 // Elite Bellare Card, +2 agi, +1 int, +10% hp
+// 4077:1 // Phen Card, spells cannot be interrupted
+-	shop	Accessory Cards#base	-1,4631:1,27333:1,300267:1,4272:1,27116:1,4091:1,4433:1,300216:1,300222:1,300211:1,27262:1,300117:1,300116:1,300111:1,4077:1
+
+// Cardian Script
+-	script	Cardian#base	-1,{
+	mes "[Gearer]";
+	mes "What equipment needs cards?";
+	switch ( select( "Weapons", "Shields", "Headgear", "Armor", "Garments", "Footgear", "Accessories", "Nevermind" ) ) {
+	case 1:
+		callshop "Weapon Cards#base", 1;
+		end;
+	case 2:
+		callshop "Shield Cards#base", 1;
+		end;
+	case 3:
+		callshop "Headgear Cards#base", 1;
+		end;
+	case 4:
+		callshop "Armor Cards#base", 1;
+		end;
+	case 5:
+		callshop "Garment Cards#base", 1;
+		end;
+	case 6:
+		callshop "Footgear Cards#base", 1;
+		end;
+	case 7:
+		callshop "Accessory Cards#base", 1;
+		end;
+	case 8:
+		end;
+	}
+}
+
+// Cardian instances @ izlude
+izlude,147,191,0	duplicate(Cardian#base)	Cardian#iz	4_F_DRKAFRA01
+izlude_a,147,191,0	duplicate(Cardian#base)	Cardian#iz_a	4_F_DRKAFRA01
+izlude_b,147,191,0	duplicate(Cardian#base)	Cardian#iz_b	4_F_DRKAFRA01
+izlude_c,147,191,0	duplicate(Cardian#base)	Cardian#iz_c	4_F_DRKAFRA01
+izlude_d,147,191,0	duplicate(Cardian#base)	Cardian#iz_d	4_F_DRKAFRA01

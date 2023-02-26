@@ -1,0 +1,34 @@
+
+// customizable
+delay_battle_damage: no
+
+item_drop_common_min: 100
+item_drop_heal_min: 100
+item_drop_use_min: 100
+item_drop_equip_min: 500
+item_drop_card_min: 500
+
+// MVP (eg. boss drops) should always
+item_rate_common_mvp: 10000
+item_rate_heal_mvp: 10000
+item_rate_use_mvp: 10000
+item_rate_equip_mvp: 10000
+item_rate_card_mvp: 10000
+
+multi_level_up: yes
+base_exp_rate: 10000
+job_exp_rate: 10000
+quest_exp_rate: 1300
+heal_exp: 1000
+resurrection_exp: 1000
+shop_exp: 1000
+death_penalty_type: 0
+
+vending_tax: 0
+
+restart_hp_rate: 100
+restart_sp_rate: 100
+natural_healhp_interval: 2000
+natural_healsp_interval: 3000
+natural_heal_skill_interval: 4000
+prevent_logout: 0

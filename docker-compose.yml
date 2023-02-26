@@ -26,7 +26,7 @@ services:
         tty: true
         stdin_open: true
         volumes:
-            - "./configs:/configs:ro"
+            - "./rathena:/overrides:ro"
             - "./rathena-setup.sh:/rathena-setup.sh:ro"
         command: bash -c '/rathena-setup.sh && /rathena/athena-start start && /bin/sh'
         environment:
