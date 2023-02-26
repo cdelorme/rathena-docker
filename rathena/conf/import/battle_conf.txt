@@ -16,9 +16,9 @@ item_rate_equip_mvp: 10000
 item_rate_card_mvp: 10000
 
 multi_level_up: yes
-base_exp_rate: 10000
+base_exp_rate: 12000
 job_exp_rate: 10000
-quest_exp_rate: 1300
+quest_exp_rate: 300
 heal_exp: 1000
 resurrection_exp: 1000
 shop_exp: 1000

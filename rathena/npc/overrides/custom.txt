@@ -17,11 +17,11 @@
 }
 
 // Recettear instances @ izlude
-izlude,147,198,6	duplicate(Recettear#base)	Recettear#iz	4_F_DRKAFRA01
-izlude_a,147,198,6	duplicate(Recettear#base)	Recettear#iz_a	4_F_DRKAFRA01
-izlude_b,147,198,6	duplicate(Recettear#base)	Recettear#iz_b	4_F_DRKAFRA01
-izlude_c,147,198,6	duplicate(Recettear#base)	Recettear#iz_c	4_F_DRKAFRA01
-izlude_d,147,198,6	duplicate(Recettear#base)	Recettear#iz_d	4_F_DRKAFRA01
+izlude,147,198,4	duplicate(Recettear#base)	Recettear#iz	4_F_DRKAFRA01
+izlude_a,147,198,4	duplicate(Recettear#base)	Recettear#iz_a	4_F_DRKAFRA01
+izlude_b,147,198,4	duplicate(Recettear#base)	Recettear#iz_b	4_F_DRKAFRA01
+izlude_c,147,198,4	duplicate(Recettear#base)	Recettear#iz_c	4_F_DRKAFRA01
+izlude_d,147,198,4	duplicate(Recettear#base)	Recettear#iz_d	4_F_DRKAFRA01
 
 
 // Refinery Script
@@ -49,11 +49,11 @@ izlude_d,147,198,6	duplicate(Recettear#base)	Recettear#iz_d	4_F_DRKAFRA01
 }
 
 // Refinery instances @ izlude
-izlude,150,198,6	duplicate(Refinery#base)	Refinery#iz	4_F_DRKAFRA01
-izlude_a,150,198,6	duplicate(Refinery#base)	Refinery#iz_a	4_F_DRKAFRA01
-izlude_b,150,198,6	duplicate(Refinery#base)	Refinery#iz_b	4_F_DRKAFRA01
-izlude_c,150,198,6	duplicate(Refinery#base)	Refinery#iz_c	4_F_DRKAFRA01
-izlude_d,150,198,6	duplicate(Refinery#base)	Refinery#iz_d	4_F_DRKAFRA01
+izlude,150,198,4	duplicate(Refinery#base)	Refinery#iz	4_F_DRKAFRA01
+izlude_a,150,198,4	duplicate(Refinery#base)	Refinery#iz_a	4_F_DRKAFRA01
+izlude_b,150,198,4	duplicate(Refinery#base)	Refinery#iz_b	4_F_DRKAFRA01
+izlude_c,150,198,4	duplicate(Refinery#base)	Refinery#iz_c	4_F_DRKAFRA01
+izlude_d,150,198,4	duplicate(Refinery#base)	Refinery#iz_d	4_F_DRKAFRA01
 
 
 // Endow Scrolls for elemental attack enchantment
@@ -320,45 +320,53 @@ izlude_d,152,196,2	duplicate(Forger#base)	Forger#iz_d	4_F_DRKAFRA01
 //	1658: Eden Staff III
 //	1626: Piercing Staff, L70, ignore 10% mdef
 //	1532: Stunner [2]
+//	1705: Composite Bow [4]
+//	1711: Cross Bow [3]
+//	18130: Crimson Bow [2]
+//	18110: Big Crossbow [2]
 //	2102: Guard [1]
 //	2104: Buckler [1]
--	shop	Weaponry#base	-1,1208:1,1217:1,1220:1,1226:1,1223:1,1237:1,13017:1,1251:1,1264:1,1275:1,1276:1,1277:1,1278:1,1601:1,1608:1,1611:1,1658:1,1626:1,1532:1,2102:1,2104:1
+-	shop	Weaponry#base	-1,1208:1,1217:1,1220:1,1226:1,1223:1,1237:1,13017:1,1251:1,1264:1,1275:1,1276:1,1277:1,1278:1,1601:1,1608:1,1611:1,1658:1,1626:1,1532:1,1705:1,1711:1,1726:1,18130:1,18110:1,2102:1,2104:1
 
 // Headgear Shop
 //	5775: Chocolate Donut, +50 hp
 //	5362: Ninja Scroll, +1% MATK, cannot drop
 //	2202: Sunglasses [1], 5% blind resist
 //	5191: Black Ribbon [1], 2 def, +3 mdef, +1 int
-//	2233: Circlet [1], 6 def, +3 mdef
-//	5296: Dropping Nine Tail [1], +1 agi/crit
 //	5270: Autumn Leaves [1], +5 Perfect Dodge
-//	5567: Rage of Luster, +1 str, +10 crit/hit @ +7 refine, cannot drop
-//	5481: Hermode Cap [1], +3% atk, +5 aspd, +4% atk @ refine +9, +1% atk @ refine +10, cannot drop
 //	5465: Hat of Fortune [1], L40, +2 luk, +5 mdef, +1 luk per refine after 5
 //	18597: Mercury Riser [1], L70, +3 crit/aspd, +2 crit/aspd @ +7 refine, +2 crit/aspd @ +9 refine
--	shop	Headgear#base	-1,5775:1,5362:1,2202:1,5191:1,2233:1,5296:1,5270:1,5567:1,5481:1,5465:1,18597:1
+-	shop	Headgear#base	-1,5775:1,5362:1,2202:1,5191:1,5270:1,5465:1,18597:1
 
 // Chestgear Shop
+//	2371: Pantie [1]
 //	2336: Thief Clothes [1], thief, +1 agi
-//	2326: Saint's Robe [1], acolyte & merchant
-//	2322: Silk Robe [1], mage
-//	2315: Chain Mail [1], thief/merc/swordsman
+//	15072: Nectar Suit [1]
+//	15052: Bakonawa Scale Armor [1]
+//	15012: Puente Robe [1]
 //	2331: Tights [1], L45, archer, +1 dex
 //	2372: Mage Coat [1], L50, mage, +1 int, +5 MDEF
 //	2359: Ninja Suit [1], L50, thief, +1 agi, +3 mdef
 //	2318: Lord's Clothes [1], L70, merchant, +1 int, +5 mdef
--	shop	Chestgear#base	-1,2336:1,2326:1,2322:1,2315:1,2331:1,2372:1,2359:1,2318:1
+//	2367: Sniping Suit [1]
+//	15042: White Wing Suits [1]
+// @note: not in the game data, yet?
+//	15205: Medical Scrubs [1]
+-	shop	Chestgear#base	-1,2371:1,2336:1,15072:1,15052:1,15012:1,2331:1,2372:1,2359:1,2318:1,2367:1,15042:1
 
 // Footgear Shop
 //	2432: High Heels [1]
 //	2406: Boots [1]
 //	2410: Sleipnir, L94
--	shop	Footgear#base	-1,2432:1,2406:1,2410:1
+//	2479: White Wing Boots
+-	shop	Footgear#base	-1,2432:1,2406:1,2410:1,2479:1
 
 // Accessories shop
 //	2523: Undershirt [1], 5 def, +1 mdef
 //	2506: Manteau [1], 13 def
 //	2525: Ancient Cape [1], L40, 9 def, +1 AGI
+//	2554: Nidhoggur's Shadow Garb [1]
+//	2580: White Wing Manteau
 //	2658: Nile Rose [1], +10 HP
 //	2607: Clip [1], +10 SP
 //	2671: Bow Thimble [1], L65, +3% Ranged Attack Damage
@@ -372,7 +380,8 @@ izlude_d,152,196,2	duplicate(Forger#base)	Forger#iz_d	4_F_DRKAFRA01
 //	2629: Megingjard, L94, 2 def, +40 STR, +7 MDEF
 //	2788: Bradium Earring [1], L60, +5 matk, +1 int, +1 dex
 //	2789: Bradium Ring [1], L60, +5 atk, +1 str, +1 vit
--	shop	Accessorize#base	-1,2523:1,2506:1,2525:1,2658:1,2607:1,2671:1,2783:1,2730:1,2732:1,2621:1,2622:1,2624:1,2625:1,2629:1,2788:1,2789:1
+//	2890: White Wing Brooch
+-	shop	Accessorize#base	-1,2523:1,2506:1,2525:1,2554:1,2580:1,2658:1,2607:1,2671:1,2783:1,2730:1,2732:1,2621:1,2622:1,2624:1,2625:1,2629:1,2788:1,2789:1,2890:1
 
 // Gearer Script
 -	script	Gearer#base	-1,{
@@ -414,8 +423,6 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 //	4086: Soldier Skeleton Card, +9 crit
 //	4496: Sealed Drake Card, +50% vs small, medium, and large, no graphic (eg. crashes)
 //	27361: Contaminated Wander Man Card, +30% damage vs medium & large
-//	27126: Boitata Card, +40% vs insect, brue, wind, and earth
-//	4408: Gloom Under Night Card, +40% vs angel, demon, shadow, and holy
 //	4140: Abysmal Knight Card, +25% vs boss
 //	4305: Turtle General Card, +20% vs all
 //	4579: Warrior Lola Card, for Maces add +20 atk, +10 crit
@@ -425,7 +432,7 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 //	4121: Phreeoni Card, +100 hit
 //	4421: Drosera Card, +15 crit /w ratk
 //	4147: Baphomet Card, attacks are aoe, -10 hit
--	shop	Weapon Cards#base	-1,4043:1,4117:1,4649:1,4086:1,4496:1,27361:1,27126:1,4408:1,4140:1,4305:1,4579:1,4625:1,300151:1,27086:1,4121:1,4421:1,4147:1
+-	shop	Weapon Cards#base	-1,4043:1,4117:1,4649:1,4086:1,4496:1,27361:1,4140:1,4305:1,4579:1,4625:1,300151:1,27086:1,4121:1,4421:1,4147:1
 
 // Shield Cards Shop
 //	4012: Thief Bug Egg Card, +400 hp
@@ -440,7 +447,6 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 // Headgear Cards Shop
 //	27109: Jitterbug Card, -10% Neutral Damage Received, +500 hp
 //	4288: Carat Card, +2 int, +150 sp @ +9 refine
-//	27115: Ominous Permeter Card, +1 int, +80 sp, +10 sp per 2 refine, +30% sp regen @ +7 refine
 //	4148: Pharaoh Card, -30% SP cost
 //	4599: Lichtern Red Card; +10 matk, +5% fire damage, +5% fire damage @ +9 refine
 //	4366: Kathryne Keyron Card, 1% reduced cast time per refine, +2% matk @ +9 refine
@@ -449,7 +455,7 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 //	4403: Kiel-D-01 Card, 30% cast reduction (???)
 //	4556: Fenrir Card, +50 matk, +5 matk per refine, -70% cast time (fixed not variable?)
 //	4365: High Wizard Card, pierce normal monster magical defense, -100% sp recovery, +100% cast time
--	shop	Headgear Cards#base	-1,27109:1,4288:1,27115:1,4148:1,4599:1,4366:1,4132:1,4143:1,4403:1,4556:1,4365:1
+-	shop	Headgear Cards#base	-1,27109:1,4288:1,4148:1,4599:1,4366:1,4132:1,4143:1,4403:1,4556:1,4365:1
 
 // Armor Cards Shop
 //	4003: Pupa Card, +700 hp
@@ -459,7 +465,9 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 //	27082: Furious Nine Tail Card, +5 crit, +10% crit damage, +10 crit @ +10 refine
 //	4526: Weird Caelacanth Card, +5% sp, +50 mdef
 //	300148: Deep Sea Stouf Card, +10% hp, +5% sp
--	shop	Armor Cards#base	-1,4003:1,300266:1,27326:1,4563:1,27082:1,4526:1,300148:1
+//	27126: Boitata Card, +40% vs insect, brue, wind, and earth
+//	4408: Gloom Under Night Card, +40% vs angel, demon, shadow, and holy
+-	shop	Armor Cards#base	-1,4003:1,300266:1,27326:1,4563:1,27082:1,4526:1,300148:1,27126:1,4408:1
 
 // Garment Cards Shop
 // 300016: Treasure Mimic Card, +5 crit, +30 flee
@@ -472,14 +480,10 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 -	shop	Garment Cards#base	-1,300016:1,4133:1,4375:1,4646:1,4373:1,4595:1,300145:1
 
 // Footgear Cards Shop
-// 4107: Verit Card, +8% hp/sp
-// 4100: Sohee Card, +15% sp, 3% sp recovery
 // 27152: Cutie Card, +10% hp, +1 agi/aspd per refine
 // 300081: Research Assistant Bot Card, +2 int, +10% hp/sp
 // 300089: Verporta Card, +2 str, +10% hp, +10% sp
-// 27383: Amdarai's Phantom Card, +10% hp, +5% sp
 // 27164: Faceworm Queen Card, -10% hp, +15 crit
-// 4482: Sealed General Egnigem Cenia Card, +5% hp/sp, recover 50/10 hp/sp every 10s
 // 300093: Papila Ruba Card, +2 int, +10% hp/sp, +5% holy light dmg
 // 300092: Greater Papila Card, +2 luk, +10% hp/sp, +50% cart revo dmg
 // 300184: Arena Blut Hase Card, +5% atk, +7% ratk
@@ -487,25 +491,26 @@ izlude_d,150,191,0	duplicate(Gearer#base)	Gearer#iz_d	4_F_DRKAFRA01
 // 300180: Arena Gangster Card, +7 aspd, +10% crit dmg
 // 300183: Arena Ordre Card, +10% wind/water dmg
 // 4131: Moonlight Flower Card, Increase Movement Speed
--	shop	Footgear Cards#base	-1,27383:1,300184:1,300181:1,300180:1,300089:1,4107:1,4100:1,300081:1,4482:1,4131:1,300093:1,300092:1,27164:1,27152:1,300183:1
+-	shop	Footgear Cards#base	-1,300184:1,300181:1,300180:1,300089:1,300081:1,4131:1,300093:1,300092:1,27164:1,27152:1,300183:1
 
 // Accessory Cards Shop
 // 4631:1 // Owl Viscount Card, +3% aspd
-// 27333:1 // Skia Nerius Card, +5% aspd
-// 300267:1 // Crow Baron Card, +5% aspd
-// 4272:1 // Zhu Po Long Card, +1 agi, +3 crit rate
 // 27116:1 // Ominous Heater Card, +3 crit, +5% crit damage
 // 4091:1 // Kobold Card, +4% crit, +1 str
 // 4433:1 // Imp Card, +25% fire bolt dmg, -25% fire bolt cast time
-// 300216:1 // Lava Toad Card, +35% fire damage, +10% sp consumption
-// 300222:1 // Firewind Kite Card, +35% wind damage, +10% sp consumption
-// 300211:1 // Ash Toad Card, +35% earth damage, +10% sp consumption
 // 27262:1 // Dwigh Card, +20% magical neutral & shadow damage
 // 300117:1 // Sharp Magic Card, +2 dex, +1 agi, +10% hp
 // 300116:1 // Powerful Magic Card, +2 str, +1 int, +10% hp
 // 300111:1 // Elite Bellare Card, +2 agi, +1 int, +10% hp
 // 4077:1 // Phen Card, spells cannot be interrupted
--	shop	Accessory Cards#base	-1,4631:1,27333:1,300267:1,4272:1,27116:1,4091:1,4433:1,300216:1,300222:1,300211:1,27262:1,300117:1,300116:1,300111:1,4077:1
+// 4145:1 // Berzebub Card, 30% Variable Cast Reduction
+// @note: these cards are nice, but require new accessory types with explicit left/right designations
+// 27333:1 // Skia Nerius Card, +5% aspd
+// 300267:1 // Crow Baron Card, +5% aspd
+// 300216:1 // Lava Toad Card, +35% fire damage, +10% sp consumption
+// 300222:1 // Firewind Kite Card, +35% wind damage, +10% sp consumption
+// 300211:1 // Ash Toad Card, +35% earth damage, +10% sp consumption
+-	shop	Accessory Cards#base	-1,4631:1,27116:1,4091:1,4433:1,27262:1,300117:1,300116:1,300111:1,4077:1,4145:1
 
 // Cardian Script
 -	script	Cardian#base	-1,{
@@ -544,3 +549,152 @@ izlude_a,147,191,0	duplicate(Cardian#base)	Cardian#iz_a	4_F_DRKAFRA01
 izlude_b,147,191,0	duplicate(Cardian#base)	Cardian#iz_b	4_F_DRKAFRA01
 izlude_c,147,191,0	duplicate(Cardian#base)	Cardian#iz_c	4_F_DRKAFRA01
 izlude_d,147,191,0	duplicate(Cardian#base)	Cardian#iz_d	4_F_DRKAFRA01
+
+
+// Swordsman Quest Materials
+//	713: Empty Bottle
+//	1058: Moth Wing
+//	2312: Padded Armor
+//	532: Banana Juice
+//	1752: Fire Arrow
+//	1751: Silver Arrow
+//	962: Tentacle
+//	526: Royal Jelly
+//	957: Decayed Nail
+//	518: Honey
+//	958: Horrendous Mouth
+//	924: Butteryfly Powder
+-	shop	Swordsman Quests#base	-1,713:1,1058:1,2312:1,532:1,1752:1,1751:1,962:1,526:1,957:1,518:1,958:1,924:1
+
+// Mage Quest Materials
+//	746: Glass Beed
+//	730: 1carat Diamond
+//	935: Shell
+//	943: Solid Shell
+-	shop	Mage Quests#base	-1,746:1,730:1,935:1,943:1
+
+// Archer Quest Materials
+//	921: Mushroom Spore
+//	501: Red Potion
+//	907: Resin
+//	1019: Trunk
+//	906: Pointed Scale
+//	532: Banana Juice
+//	925: Bill of Bird
+//	721: Emerald
+//	962: Tentacle
+//	942: Yoyo Tail
+-	shop	Archer Quests#base	-1,921:1,501:1,907:1,1019:1,906:1,532:1,925:1,721:1,962:1,942:1
+
+// Merchant Quest Materials
+//	919: Animal Skin
+//	998: Iron
+//	1019: Trunk
+//	722: Pearl
+//	921: Mushroom Spore
+//	938: Sticky Mucus
+//	601: Fly Wing
+//	962: Tentacle
+//	533: Grape Juice
+//	532: Banana Juice
+//	6495: Eden Merit Badge
+-	shop	Merchant Quests#base	-1,919:1,998:1,1019:1,722:1,921:1,938:1,601:1,962:1,533:1,532:1,6495:1
+
+// Theif Quest Materials
+//	940: Grasshopper Leg
+//	948: Bear's Footskin
+//	912: Zargon
+//	908: Spawn
+//	7041: Fine Grit
+//	1055: Earthworm Peeling
+//	1025: Cobweb
+//	952: Cactus Needle
+//	910: Garlet
+//	911: Scell
+-	shop	Thief Quests#base	-1,940:1,948:1,912:1,908:1,7041:1,1055:1,1025:1,952:1,910:1,911:1
+
+// Acolyte Quest Materials
+-	shop	Acolyte Quests#base	-1,2608:1,727:1,991:1
+
+// Questier Script
+-	script	Questier#base	-1,{
+	mes "[Questier]";
+	mes "Which class?";
+	switch ( select( "Swordsman", "Mage", "Archer", "Merchant", "Thief", "Acolyte", "Nevermind" ) ) {
+	case 1:
+		mes "200 Empty Bottles";
+		mes "1 Moth Wing";
+		mes "Padded Armor";
+		mes "1 Banana Juice";
+		mes "10 Fire Arrows";
+		mes "10 Silver Arrows";
+		mes "30 Tentacles";
+		mes "5 Royal Jelly";
+		mes "10 Decayed Nails";
+		mes "10 Honey";
+		mes "10 Horrendous Mouths";
+		mes "35 Butterfly Powder";
+		callshop "Swordsman Quests#base", 1;
+		end;
+	case 2:
+		mes "3 Glass Bead";
+		mes "1 1carat Diamond";
+		mes "5 Shell";
+		mes "1 Solid Shell";
+		callshop "Mage Quests#base", 1;
+		end;
+	case 3:
+		mes "7 Mushroom Spore";
+		mes "1 Red Potion";
+		mes "20 Resin";
+		mes "13 Trunk";
+		mes "41 Pointed Scales";
+		mes "36 Banana Juice";
+		mes "10 Bill of Bird";
+		mes "2 Emerald";
+		mes "10 Tentacle";
+		mes "3 Yoyo Tail";
+		callshop "Archer Quests#base", 1;
+		end;
+	case 4:
+		mes "20 Animal Skin";
+		mes "30 Iron";
+		mes "50 Trunk";
+		mes "7 Pearl";
+		mes "50 Mushroom Spore";
+		mes "30 Sticky Mucus";
+		mes "20 Fly Wing";
+		mes "5 Tentacles";
+		mes "2 Grape Juice";
+		mes "2 Banana Juice";
+		mes "50 Eden Merit Badge";
+		callshop "Merchant Quests#base", 1;
+		end;
+	case 5:
+		mes "20 Grasshopper Leg";
+		mes "1 Bear's Footskin";
+		mes "1 Zargon";
+		mes "5 Spawn";
+		mes "5 Fine Grit";
+		mes "1 Earthworm Peeling";
+		mes "1 Cobweb";
+		mes "1 Cactus Needle";
+		mes "2 Garlet";
+		mes "2 Scell";
+		callshop "Thief Quests#base", 1;
+		end;
+	case 6:
+		mes "Holy Light: 1 Rosary, 1 Opal, 1 Crystal Blue";
+		callshop "Acolyte Quests#base", 1;
+		end;
+	case 7:
+		end;
+	}
+}
+
+// Forger instances @ izlude
+izlude,145,196,6	duplicate(Questier#base)	Questier#iz	4_F_DRKAFRA01
+izlude_a,145,196,6	duplicate(Questier#base)	Questier#iz_a	4_F_DRKAFRA01
+izlude_b,145,196,6	duplicate(Questier#base)	Questier#iz_b	4_F_DRKAFRA01
+izlude_c,145,196,6	duplicate(Questier#base)	Questier#iz_c	4_F_DRKAFRA01
+izlude_d,145,196,6	duplicate(Questier#base)	Questier#iz_d	4_F_DRKAFRA01
